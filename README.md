@@ -14,3 +14,5 @@ My own game engine for SFML:
 -Config file creator / reader
 
 -RandomValue functions ( integer and floating point values )
+
+-ResourceManager
