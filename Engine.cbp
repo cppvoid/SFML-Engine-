@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Engine" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Engine" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-g" />
+					<Add directory="src" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-lsfml-window" />
+					<Add option="-lsfml-graphics" />
+					<Add option="-lsfml-audio" />
+					<Add option="-lsfml-system" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Engine" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-std=c++11" />
+					<Add directory="include" />
+					<Add directory="src" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-lsfml-window -lsfml-graphics -lsfml-audio -lsfml-system" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="include/Collision.h" />
+		<Unit filename="include/Config.h" />
+		<Unit filename="include/Game.h" />
+		<Unit filename="include/MenuState.h" />
+		<Unit filename="include/RandomValues.h" />
+		<Unit filename="include/State.h" />
+		<Unit filename="include/StateManager.h" />
+		<Unit filename="src/Collision.cpp" />
+		<Unit filename="src/Config.cpp" />
+		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/Main.cpp" />
+		<Unit filename="src/MenuState.cpp" />
+		<Unit filename="src/RandomValues.cpp" />
+		<Unit filename="src/State.cpp" />
+		<Unit filename="src/StateManager.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
