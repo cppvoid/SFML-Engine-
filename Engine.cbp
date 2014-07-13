@@ -49,6 +49,7 @@
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/MenuState.h" />
 		<Unit filename="include/RandomValues.h" />
+		<Unit filename="include/ResourceManager.h" />
 		<Unit filename="include/State.h" />
 		<Unit filename="include/StateManager.h" />
 		<Unit filename="src/Collision.cpp" />
@@ -57,6 +58,7 @@
 		<Unit filename="src/Main.cpp" />
 		<Unit filename="src/MenuState.cpp" />
 		<Unit filename="src/RandomValues.cpp" />
+		<Unit filename="src/ResourceManager.cpp" />
 		<Unit filename="src/State.cpp" />
 		<Unit filename="src/StateManager.cpp" />
 		<Extensions>

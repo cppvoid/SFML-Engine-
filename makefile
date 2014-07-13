@@ -40,9 +40,9 @@ OBJDIR_RELEASE = obj/Release
 DEP_RELEASE = 
 OUT_RELEASE = bin/Release/Engine
 
-OBJ_DEBUG = $(OBJDIR_DEBUG)/src/Collision.o $(OBJDIR_DEBUG)/src/Config.o $(OBJDIR_DEBUG)/src/Game.o $(OBJDIR_DEBUG)/src/Main.o $(OBJDIR_DEBUG)/src/MenuState.o $(OBJDIR_DEBUG)/src/RandomValues.o $(OBJDIR_DEBUG)/src/State.o $(OBJDIR_DEBUG)/src/StateManager.o
+OBJ_DEBUG = $(OBJDIR_DEBUG)/src/Collision.o $(OBJDIR_DEBUG)/src/StateManager.o $(OBJDIR_DEBUG)/src/State.o $(OBJDIR_DEBUG)/src/ResourceManager.o $(OBJDIR_DEBUG)/src/RandomValues.o $(OBJDIR_DEBUG)/src/MenuState.o $(OBJDIR_DEBUG)/src/Main.o $(OBJDIR_DEBUG)/src/Game.o $(OBJDIR_DEBUG)/src/Config.o
 
-OBJ_RELEASE = $(OBJDIR_RELEASE)/src/Collision.o $(OBJDIR_RELEASE)/src/Config.o $(OBJDIR_RELEASE)/src/Game.o $(OBJDIR_RELEASE)/src/Main.o $(OBJDIR_RELEASE)/src/MenuState.o $(OBJDIR_RELEASE)/src/RandomValues.o $(OBJDIR_RELEASE)/src/State.o $(OBJDIR_RELEASE)/src/StateManager.o
+OBJ_RELEASE = $(OBJDIR_RELEASE)/src/Collision.o $(OBJDIR_RELEASE)/src/StateManager.o $(OBJDIR_RELEASE)/src/State.o $(OBJDIR_RELEASE)/src/ResourceManager.o $(OBJDIR_RELEASE)/src/RandomValues.o $(OBJDIR_RELEASE)/src/MenuState.o $(OBJDIR_RELEASE)/src/Main.o $(OBJDIR_RELEASE)/src/Game.o $(OBJDIR_RELEASE)/src/Config.o
 
 all: debug release
 
@@ -62,26 +62,29 @@ out_debug: before_debug $(OBJ_DEBUG) $(DEP_DEBUG)
 $(OBJDIR_DEBUG)/src/Collision.o: src/Collision.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/Collision.cpp -o $(OBJDIR_DEBUG)/src/Collision.o
 
-$(OBJDIR_DEBUG)/src/Config.o: src/Config.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/Config.cpp -o $(OBJDIR_DEBUG)/src/Config.o
-
-$(OBJDIR_DEBUG)/src/Game.o: src/Game.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/Game.cpp -o $(OBJDIR_DEBUG)/src/Game.o
-
-$(OBJDIR_DEBUG)/src/Main.o: src/Main.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/Main.cpp -o $(OBJDIR_DEBUG)/src/Main.o
-
-$(OBJDIR_DEBUG)/src/MenuState.o: src/MenuState.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/MenuState.cpp -o $(OBJDIR_DEBUG)/src/MenuState.o
-
-$(OBJDIR_DEBUG)/src/RandomValues.o: src/RandomValues.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/RandomValues.cpp -o $(OBJDIR_DEBUG)/src/RandomValues.o
+$(OBJDIR_DEBUG)/src/StateManager.o: src/StateManager.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/StateManager.cpp -o $(OBJDIR_DEBUG)/src/StateManager.o
 
 $(OBJDIR_DEBUG)/src/State.o: src/State.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/State.cpp -o $(OBJDIR_DEBUG)/src/State.o
 
-$(OBJDIR_DEBUG)/src/StateManager.o: src/StateManager.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/StateManager.cpp -o $(OBJDIR_DEBUG)/src/StateManager.o
+$(OBJDIR_DEBUG)/src/ResourceManager.o: src/ResourceManager.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/ResourceManager.cpp -o $(OBJDIR_DEBUG)/src/ResourceManager.o
+
+$(OBJDIR_DEBUG)/src/RandomValues.o: src/RandomValues.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/RandomValues.cpp -o $(OBJDIR_DEBUG)/src/RandomValues.o
+
+$(OBJDIR_DEBUG)/src/MenuState.o: src/MenuState.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/MenuState.cpp -o $(OBJDIR_DEBUG)/src/MenuState.o
+
+$(OBJDIR_DEBUG)/src/Main.o: src/Main.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/Main.cpp -o $(OBJDIR_DEBUG)/src/Main.o
+
+$(OBJDIR_DEBUG)/src/Game.o: src/Game.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/Game.cpp -o $(OBJDIR_DEBUG)/src/Game.o
+
+$(OBJDIR_DEBUG)/src/Config.o: src/Config.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/Config.cpp -o $(OBJDIR_DEBUG)/src/Config.o
 
 clean_debug: 
 	rm -f $(OBJ_DEBUG) $(OUT_DEBUG)
@@ -102,26 +105,29 @@ out_release: before_release $(OBJ_RELEASE) $(DEP_RELEASE)
 $(OBJDIR_RELEASE)/src/Collision.o: src/Collision.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/Collision.cpp -o $(OBJDIR_RELEASE)/src/Collision.o
 
-$(OBJDIR_RELEASE)/src/Config.o: src/Config.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/Config.cpp -o $(OBJDIR_RELEASE)/src/Config.o
-
-$(OBJDIR_RELEASE)/src/Game.o: src/Game.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/Game.cpp -o $(OBJDIR_RELEASE)/src/Game.o
-
-$(OBJDIR_RELEASE)/src/Main.o: src/Main.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/Main.cpp -o $(OBJDIR_RELEASE)/src/Main.o
-
-$(OBJDIR_RELEASE)/src/MenuState.o: src/MenuState.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/MenuState.cpp -o $(OBJDIR_RELEASE)/src/MenuState.o
-
-$(OBJDIR_RELEASE)/src/RandomValues.o: src/RandomValues.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/RandomValues.cpp -o $(OBJDIR_RELEASE)/src/RandomValues.o
+$(OBJDIR_RELEASE)/src/StateManager.o: src/StateManager.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/StateManager.cpp -o $(OBJDIR_RELEASE)/src/StateManager.o
 
 $(OBJDIR_RELEASE)/src/State.o: src/State.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/State.cpp -o $(OBJDIR_RELEASE)/src/State.o
 
-$(OBJDIR_RELEASE)/src/StateManager.o: src/StateManager.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/StateManager.cpp -o $(OBJDIR_RELEASE)/src/StateManager.o
+$(OBJDIR_RELEASE)/src/ResourceManager.o: src/ResourceManager.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/ResourceManager.cpp -o $(OBJDIR_RELEASE)/src/ResourceManager.o
+
+$(OBJDIR_RELEASE)/src/RandomValues.o: src/RandomValues.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/RandomValues.cpp -o $(OBJDIR_RELEASE)/src/RandomValues.o
+
+$(OBJDIR_RELEASE)/src/MenuState.o: src/MenuState.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/MenuState.cpp -o $(OBJDIR_RELEASE)/src/MenuState.o
+
+$(OBJDIR_RELEASE)/src/Main.o: src/Main.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/Main.cpp -o $(OBJDIR_RELEASE)/src/Main.o
+
+$(OBJDIR_RELEASE)/src/Game.o: src/Game.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/Game.cpp -o $(OBJDIR_RELEASE)/src/Game.o
+
+$(OBJDIR_RELEASE)/src/Config.o: src/Config.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/Config.cpp -o $(OBJDIR_RELEASE)/src/Config.o
 
 clean_release: 
 	rm -f $(OBJ_RELEASE) $(OUT_RELEASE)
