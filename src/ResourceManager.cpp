@@ -26,7 +26,7 @@ const Resource& ResourceManager< Identifier, Resource >::get( Identifier ident )
     auto pos = data.find( ident );
     if( pos == data.end() )
     {
-        throw std::runtime_error("resource-manager: identifier not found in data");
+        throw std::logic_error("resource-manager: identifier not found in data");
     }
     return *pos->second;
 }
