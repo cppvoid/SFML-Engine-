@@ -1,20 +1,21 @@
 #include "MenuState.h"
 
-MenuState::MenuState()
+MenuState::MenuState( sf::RenderWindow& window )
+    : State( window )
 {
 }
 
-void MenuState::clear( sf::RenderWindow& window )
+void MenuState::clear()
 {
     window.clear( sf::Color::Black );
 }
 
-void MenuState::display( sf::RenderWindow& window )
+void MenuState::display()
 {
     window.display();
 }
 
-bool MenuState::draw( sf::RenderWindow& window )
+bool MenuState::draw()
 {
     return true;
 }

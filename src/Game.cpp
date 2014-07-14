@@ -5,7 +5,7 @@ const sf::Time Game::timePerFrame = sf::seconds(1.f/60.f);
 Game::Game()
     :
     window( sf::VideoMode( 800, 640 ), "SF::GameEngine 1.0" ),
-    sm( State::Ptr( new MenuState() ) )
+    sm( State::Ptr( new MenuState( window ) ) )
 {
     std::srand( static_cast<unsigned> ( time(nullptr) ) );
 }
@@ -35,10 +35,10 @@ void Game::run()
                 sm.handleEvents( event );
             }
 
-            sm.clear( window );
+            sm.clear();
             sm.update();
-            sm.draw( window );
-            sm.display( window );
+            sm.draw();
+            sm.display();
             sm.manageAction();
         }
     }

@@ -20,15 +20,15 @@ class StateManager
 
         void pop();
 
-		void clear( sf::RenderWindow& window );
+		void clear();
 
-        void draw( sf::RenderWindow& window );
+        void draw();
 
         void handleEvents( const sf::Event& event );
 
         void update();
 
-        void display( sf::RenderWindow& window );
+        void display();
 
         void manageAction();
 

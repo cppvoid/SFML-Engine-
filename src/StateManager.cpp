@@ -29,17 +29,17 @@ void StateManager<T>::pop()
 }
 
 template < class T >
-void StateManager<T>::clear( sf::RenderWindow& window )
+void StateManager<T>::clear()
 {
-    stateStack.back()->clear( window );
+    stateStack.back()->clear();
 }
 
 template < class T >
-void StateManager<T>::draw( sf::RenderWindow& window )
+void StateManager<T>::draw()
 {
     for(auto& i : boost::adaptors::reverse( stateStack ) )
     {
-        bool backward = i->draw( window );
+        bool backward = i->draw();
         if(!backward)
             break;
     }
@@ -58,9 +58,9 @@ void StateManager<T>::update()
 }
 
 template< class T >
-void StateManager<T>::display( sf::RenderWindow& window )
+void StateManager<T>::display()
 {
-    stateStack.back()->display( window );
+    stateStack.back()->display();
 }
 
 template< class T >

@@ -7,13 +7,13 @@
 class MenuState : public State
 {
     public:
-        explicit MenuState();
+        explicit MenuState( sf::RenderWindow& window );
 
-        void clear( sf::RenderWindow& window );
+        void clear();
 
-        void display( sf::RenderWindow& window );
+        void display();
 
-        bool draw( sf::RenderWindow& window );
+        bool draw();
 
         void handleEvents( const sf::Event& event );
 

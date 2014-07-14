@@ -8,7 +8,7 @@
 class State
 {
     public:
-        State();
+        explicit State( sf::RenderWindow& window );
 
         typedef std::unique_ptr< State > Ptr;
 
@@ -18,11 +18,11 @@ class State
 
         void popState( StateManager< Ptr >& sm );
 
-		virtual void clear( sf::RenderWindow& window ) = 0;
+		virtual void clear() = 0;
 
-		virtual void display( sf::RenderWindow& window ) = 0;
+		virtual void display() = 0;
 
-        virtual bool draw( sf::RenderWindow& window ) = 0;
+        virtual bool draw() = 0;
 
         virtual void handleEvents( const sf::Event& event ) = 0;
 
@@ -31,6 +31,9 @@ class State
         virtual void manageAction( StateManager< Ptr >& sm ) = 0;
 
         virtual ~State();
+
+    protected:
+        sf::RenderWindow& window;
 
     private:
         State(State const&) = delete;
