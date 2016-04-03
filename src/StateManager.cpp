@@ -3,76 +3,78 @@
 
 #include "StateManager.h"
 
-template< class T >
-StateManager<T>::StateManager( T ptr )
+template<typename T>
+StateManager<T>::StateManager(T ptr)
 {
-    stateStack.push_back( std::move( ptr ) );
+    m_stateStack.push_back(std::move(ptr));
 }
 
-template< class T >
-void StateManager<T>::change( T Ptr )
+template<typename T>
+void StateManager<T>::change(T Ptr)
 {
     pop();
-    push( std::move( Ptr ) );
+    push(std::move(Ptr));
 }
 
-template < class T >
-void StateManager<T>::push( T ptr )
+template<typename T>
+void StateManager<T>::push(T ptr)
 {
-    stateStack.push_back( std::move( ptr ) );
+    m_stateStack.push_back(std::move(ptr));
 }
 
-template < class T >
+template<typename T>
 void StateManager<T>::pop()
 {
-    stateStack.pop_back();
+    m_stateStack.pop_back();
 }
 
-template < class T >
+template<typename T>
 void StateManager<T>::clear()
 {
-    stateStack.back()->clear();
+    m_stateStack.back()->clear();
 }
 
-template < class T >
+template<typename T>
 void StateManager<T>::draw()
 {
-    for(auto& i : boost::adaptors::reverse( stateStack ) )
+    for(auto& i : boost::adaptors::reverse(m_stateStack))
     {
         bool backward = i->draw();
         if(!backward)
-            break;
+		{
+			break;
+		}
     }
 }
 
-template< class T >
-void StateManager<T>::handleEvents( const sf::Event& event )
+template<typename T>
+void StateManager<T>::handleEvents(const sf::Event& event)
 {
-    stateStack.back()->handleEvents( event );
+    m_stateStack.back()->handleEvents(event);
 }
 
-template < class T >
+template<typename T>
 void StateManager<T>::update()
 {
-    stateStack.back()->update();
+    m_stateStack.back()->update();
 }
 
-template< class T >
+template<typename T>
 void StateManager<T>::display()
 {
-    stateStack.back()->display();
+    m_stateStack.back()->display();
 }
 
-template< class T >
+template<typename T>
 void StateManager<T>::manageAction()
 {
-    stateStack.back()->manageAction(*this);
+    m_stateStack.back()->manageAction(*this);
 }
 
-template< class T >
+template<typename T>
 bool StateManager<T>::empty()
 {
-    return stateStack.empty();
+    return m_stateStack.empty();
 }
 
 #endif //STATEMANAGER_CPP
